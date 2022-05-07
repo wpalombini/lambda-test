@@ -1,0 +1,12 @@
+{
+  "name": "lambda-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compress": "powershell Compress-Archive -LiteralPath './index.js' -DestinationPath './index.zip' -Force",
+    "deploy": "npm run compress && aws lambda update-function-code --function-name lambda-test --zip-file fileb://index.zip --region ap-southeast-2"
+  },
+  "author": "",
+  "license": "ISC"
+}
